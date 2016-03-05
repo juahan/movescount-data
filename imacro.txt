@@ -1,0 +1,10 @@
+VERSION  BUILD=7500718 RECORDER=FX
+TAB T=1
+'structure for for csv file: year,url
+SET !DATASOURCE C:\Users\Juhana\Documents\Dropbox\fit\osoitteet.csv
+SET !LOOP 2
+SET !DATASOURCE_LINE {{!LOOP}}
+URL GOTO={{!COL2}}
+WAIT SECONDS=1
+'Save the page
+SAVEAS TYPE=HTM FOLDER=* FILE=+_{{!COL1}}
