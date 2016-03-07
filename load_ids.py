@@ -26,14 +26,14 @@ for item in path_file_list:
 
 print "files read"
 
-for item in link_array:
+for n, item in enumerate(link_array):
     item = item.split("=")
     ids = item[2].split("+")
-    print len(ids)
+    print "Year #{}: {} items".format(n, len(ids))
     for a in ids:
         id_array.append(a)
 
-print "ids: {}".format(len(id_array))
+print "Total items: {}".format(len(id_array))
 
 # Write plain list
 with open("id_results.txt", "w") as f:
@@ -47,3 +47,4 @@ with open("id_results.csv", "w") as f:
         f.write("http://www.movescount.com/move/export?id=" + item + "&format=fit" + "\n")
 print "csv written"
 
+# Site uses javascript, unable to log in with mechanize and download programmatically
